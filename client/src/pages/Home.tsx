@@ -45,9 +45,11 @@ export default function Home() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-                <Users className="w-6 h-6 text-primary-foreground" />
-              </div>
+              <img
+                src="/sportlink-app-icon.png"
+                alt="SportLink logo"
+                className="w-10 h-10 rounded-xl object-cover"
+              />
               <span className="text-xl font-bold">SportLink</span>
             </div>
             <div className="hidden md:flex items-center gap-8">
@@ -78,10 +80,6 @@ export default function Home() {
               <Button size="lg" className="text-lg px-8 py-6" disabled>
                 <Calendar className="w-5 h-5 mr-2" />
                 Coming Summer 2026
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6">
-                <Github className="w-5 h-5 mr-2" />
-                View on GitHub
               </Button>
             </div>
             <div className="mt-12 flex items-center justify-center gap-8 text-sm text-muted-foreground">
@@ -413,9 +411,11 @@ export default function Home() {
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <Users className="w-5 h-5 text-primary-foreground" />
-              </div>
+              <img
+                src="/sportlink-app-icon.png"
+                alt="SportLink logo"
+                className="w-8 h-8 rounded-lg object-cover"
+              />
               <span className="font-semibold text-lg">SportLink</span>
             </div>
             <p className="text-sm text-muted-foreground text-center md:text-left">
