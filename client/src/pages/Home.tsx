@@ -29,12 +29,11 @@ export default function Home() {
     { src: "/screenshots/photo_splashscreen.png", title: "Splash Screen" },
     { src: "/screenshots/photo_connexion.png", title: "Login" },
     { src: "/screenshots/photo_accueil_haut.png", title: "Home" },
-    { src: "/screenshots/photo_creer_activite_haut.png", title: "Create Activity" },
-    { src: "/screenshots/photo_liste_filtre.png", title: "Filtered List" },
+    { src: "/screenshots/photo_filtre_activites.png", title: "Discover List" },
+    { src: "/screenshots/photo_carte_filtre.png", title: "Discover Map" },
     { src: "/screenshots/photo_activites_details_haut.png", title: "Activity Details" },
-    { src: "/screenshots/photo_modifier_activite.png", title: "Edit Activity" },
-    { src: "/screenshots/photo_carte_filtre.png", title: "Map with Filters" },
-    { src: "/screenshots/photo_bookings_hosting.png", title: "Bookings & Hosting" },
+    { src: "/screenshots/photo_creer_activite_haut.png", title: "Create Activity" },
+    { src: "/screenshots/photo_bookings_hosting.png", title: "Bookings" },
     { src: "/screenshots/photo_profil.png", title: "User Profile" }
   ];
 
