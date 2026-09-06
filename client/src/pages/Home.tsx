@@ -37,7 +37,15 @@ export default function Home() {
 
   const productViews = [
     {
-      eyebrow: tr("Discover", "Découvrir"),
+      title: tr("See what is happening nearby.", "Voyez ce qui se passe près de chez vous."),
+      description: tr(
+        "The Home screen shows activities around you and gives you a quick way to explore more.",
+        "L’écran d’accueil présente les activités autour de vous et permet d’en découvrir davantage.",
+      ),
+      image: "/screenshots/home_page.png",
+      alt: tr("SportLink home screen", "Écran d’accueil de SportLink"),
+    },
+    {
       title: tr("Start with what is nearby.", "Commencez près de chez vous."),
       description: tr(
         "Move around the map, choose a park, and see the activities available there.",
@@ -47,7 +55,6 @@ export default function Home() {
       alt: tr("SportLink map showing a selected park", "Carte SportLink montrant un parc sélectionné"),
     },
     {
-      eyebrow: tr("Activity details", "Détails de l’activité"),
       title: tr("Know what you are joining.", "Sachez à quoi vous participez."),
       description: tr(
         "Check the time, place, organizer, participants, and conversation before you decide.",
@@ -57,7 +64,6 @@ export default function Home() {
       alt: tr("SportLink activity details", "Détails d’une activité SportLink"),
     },
     {
-      eyebrow: tr("Bookings", "Activités"),
       title: tr("Your plans stay easy to find.", "Retrouvez facilement vos activités."),
       description: tr(
         "See the activities you host, plan to attend, or save for later.",
@@ -65,16 +71,6 @@ export default function Home() {
       ),
       image: "/screenshots/my_bookings.png",
       alt: tr("SportLink bookings", "Activités enregistrées dans SportLink"),
-    },
-    {
-      eyebrow: tr("Profile", "Profil"),
-      title: tr("Make the app yours.", "Adaptez l’application à vos besoins."),
-      description: tr(
-        "Add your favorite sports and weekly availability to your profile.",
-        "Ajoutez vos sports préférés et vos disponibilités de la semaine à votre profil.",
-      ),
-      image: "/screenshots/my_profile.png",
-      alt: tr("SportLink profile", "Profil SportLink"),
     },
   ];
 
@@ -128,12 +124,6 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="hero-screen-wrap">
-              <img
-                src="/screenshots/home_page.png"
-                alt={tr("SportLink home screen", "Écran d’accueil de SportLink")}
-              />
-            </div>
           </div>
         </section>
 
@@ -161,7 +151,6 @@ export default function Home() {
             <section className="home-section" key={view.image}>
               <div className={`home-shell section-inner product-row ${index % 2 === 1 ? "product-row-reverse" : ""}`}>
                 <div className="product-copy">
-                  <p className="home-eyebrow">{view.eyebrow}</p>
                   <h2>{view.title}</h2>
                   <p>{view.description}</p>
                 </div>
