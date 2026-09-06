@@ -1,9 +1,9 @@
 .sportlink-home {
-  --home-bg: #191919;
-  --home-ink: #f7f7f5;
-  --home-soft: rgba(247, 247, 245, 0.8);
-  --home-muted: rgba(247, 247, 245, 0.58);
-  --home-line: rgba(247, 247, 245, 0.14);
+  --home-bg: #ffffff;
+  --home-ink: #171717;
+  --home-soft: rgba(23, 23, 23, 0.78);
+  --home-muted: rgba(23, 23, 23, 0.58);
+  --home-line: rgba(23, 23, 23, 0.14);
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
@@ -105,11 +105,18 @@
 }
 
 .home-hero {
-  padding: 72px 0 0;
+  padding: 64px 0 0;
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  align-items: center;
+  gap: clamp(48px, 10vw, 130px);
 }
 
 .hero-copy {
-  max-width: 760px;
+  max-width: 680px;
 }
 
 .home-eyebrow {
@@ -122,24 +129,25 @@
 }
 
 .hero-copy h1 {
-  max-width: 800px;
+  max-width: 700px;
   margin-bottom: 22px;
-  font-size: clamp(3.5rem, 9vw, 6.8rem);
+  font-size: clamp(3.4rem, 8vw, 6.6rem);
   font-weight: 760;
   line-height: 0.94;
   letter-spacing: -0.06em;
 }
 
 .hero-description {
-  max-width: 650px;
+  max-width: 610px;
   margin-bottom: 28px;
   color: var(--home-soft);
-  font-size: clamp(1.08rem, 2vw, 1.3rem);
+  font-size: clamp(1.08rem, 2vw, 1.28rem);
   line-height: 1.5;
 }
 
 .store-links {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 12px;
 }
@@ -150,39 +158,34 @@
 }
 
 .store-links a:hover {
-  opacity: 0.82;
+  opacity: 0.78;
   transform: translateY(-1px);
 }
 
 .store-links img {
   width: auto;
-  height: 52px;
+  height: 50px;
 }
 
-.store-links a:last-child img {
-  height: 54px;
-}
-
-.app-preview {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: start;
-  gap: clamp(10px, 2vw, 22px);
-  max-height: 650px;
-  margin-top: 66px;
+.hero-screen-wrap,
+.product-screen-wrap {
   overflow: hidden;
-}
-
-.preview-screen {
-  width: 100%;
   border: 1px solid var(--home-line);
-  border-radius: clamp(16px, 3vw, 34px);
-  background: #101010;
+  border-radius: 32px;
+  background: #f6f6f4;
 }
 
-.preview-screen-left,
-.preview-screen-right {
-  margin-top: 74px;
+.hero-screen-wrap {
+  width: 100%;
+  height: 680px;
+}
+
+.hero-screen-wrap img,
+.product-screen-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 
 .home-section {
@@ -190,18 +193,18 @@
 }
 
 .section-inner {
-  padding-block: 64px;
+  padding-block: 72px;
   border-top: 1px solid var(--home-line);
 }
 
 .section-heading {
   max-width: 620px;
-  margin: 0 0 34px auto;
+  margin: 0 0 38px auto;
   text-align: right;
 }
 
 .section-heading h2,
-.details-copy h2 {
+.product-copy h2 {
   margin-bottom: 0;
   font-size: clamp(2rem, 5vw, 3.4rem);
   font-weight: 740;
@@ -237,57 +240,55 @@
 }
 
 .feature-list p,
-.details-copy > p {
+.product-copy > p {
   margin-bottom: 0;
   color: var(--home-muted);
   font-size: 0.98rem;
   line-height: 1.6;
 }
 
-.details-layout {
+.product-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.68fr);
-  align-items: start;
-  gap: clamp(48px, 9vw, 120px);
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(48px, 10vw, 130px);
 }
 
-.details-copy {
-  padding-top: 30px;
+.product-row-reverse {
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
 }
 
-.details-copy h2 {
+.product-row .product-copy {
+  order: 2;
+}
+
+.product-row .product-screen-wrap {
+  order: 1;
+}
+
+.product-row-reverse .product-copy {
+  order: 1;
+}
+
+.product-row-reverse .product-screen-wrap {
+  order: 2;
+}
+
+.product-copy {
+  max-width: 540px;
+}
+
+.product-copy h2 {
   margin-bottom: 18px;
 }
 
-.details-copy > p {
-  max-width: 560px;
+.product-copy > p {
   font-size: 1.06rem;
 }
 
-.details-copy ul {
-  margin: 34px 0 0;
-  padding: 0;
-  border-top: 1px solid var(--home-line);
-  list-style: none;
-}
-
-.details-copy li {
-  padding: 16px 0;
-  border-bottom: 1px solid var(--home-line);
-  color: var(--home-soft);
-  font-size: 0.96rem;
-}
-
-.details-image-wrap {
-  max-height: 570px;
-  overflow: hidden;
-  border: 1px solid var(--home-line);
-  border-radius: 30px;
-  background: #101010;
-}
-
-.details-image-wrap img {
+.product-screen-wrap {
   width: 100%;
+  height: 620px;
 }
 
 .home-footer {
@@ -340,11 +341,18 @@
   }
 
   .home-hero {
-    padding-top: 52px;
+    padding-top: 48px;
+  }
+
+  .hero-layout,
+  .product-row,
+  .product-row-reverse {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 44px;
   }
 
   .hero-copy h1 {
-    font-size: clamp(3.25rem, 16vw, 5rem);
+    font-size: clamp(3rem, 15vw, 5rem);
   }
 
   .store-links {
@@ -355,26 +363,16 @@
     height: 44px;
   }
 
-  .store-links a:last-child img {
-    height: 46px;
-  }
-
-  .app-preview {
-    grid-template-columns: repeat(3, min(62vw, 310px));
-    height: min(calc(134vw + 48px), 720px);
-    max-height: none;
-    margin-top: 50px;
-    overflow: visible;
-    transform: translateX(-48vw);
-  }
-
-  .preview-screen-left,
-  .preview-screen-right {
-    margin-top: 48px;
+  .hero-screen-wrap,
+  .product-screen-wrap {
+    width: min(100%, 380px);
+    height: min(148vw, 620px);
+    margin-inline: auto;
+    border-radius: 26px;
   }
 
   .section-inner {
-    padding-block: 48px;
+    padding-block: 52px;
   }
 
   .section-heading {
@@ -391,18 +389,14 @@
     margin-bottom: 20px;
   }
 
-  .details-layout {
-    grid-template-columns: 1fr;
-    gap: 38px;
+  .product-row .product-copy,
+  .product-row-reverse .product-copy {
+    order: 1;
   }
 
-  .details-copy {
-    padding-top: 0;
-  }
-
-  .details-image-wrap {
-    width: min(100%, 380px);
-    max-height: 520px;
+  .product-row .product-screen-wrap,
+  .product-row-reverse .product-screen-wrap {
+    order: 2;
   }
 
   .footer-inner,
@@ -420,15 +414,16 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .sportlink-home {
-    scroll-behavior: auto;
+@media (max-width: 360px) {
+  .home-nav a {
+    display: none;
   }
+}
 
+@media (prefers-reduced-motion: reduce) {
   .sportlink-home *,
   .sportlink-home *::before,
   .sportlink-home *::after {
-    scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
 }

@@ -13,16 +13,16 @@ export default function Home() {
       number: "01",
       title: tr("Explore nearby", "Explorez à proximité"),
       description: tr(
-        "Browse activities by date and sport, then switch between a list and a map.",
+        "Browse activities by date and sport, then move between the list and the map.",
         "Parcourez les activités par date et par sport, puis passez de la liste à la carte.",
       ),
     },
     {
       number: "02",
-      title: tr("Create an activity", "Créez une activité"),
+      title: tr("Check the details", "Consultez les détails"),
       description: tr(
-        "Choose the sport, time, location, and number of participants for your next game.",
-        "Choisissez le sport, l’heure, le lieu et le nombre de participants pour votre prochaine partie.",
+        "See the place, time, organizer, and participants before joining an activity.",
+        "Consultez le lieu, l’heure, l’organisateur et les participants avant de rejoindre une activité.",
       ),
     },
     {
@@ -35,10 +35,47 @@ export default function Home() {
     },
   ];
 
-  const detailItems = [
-    tr("Date, time, and meeting place", "Date, heure et lieu de rencontre"),
-    tr("Organizer and participant list", "Organisateur et liste des participants"),
-    tr("Activity conversation", "Conversation de l’activité"),
+  const productViews = [
+    {
+      eyebrow: tr("Discover", "Découvrir"),
+      title: tr("Start with what is nearby.", "Commencez près de chez vous."),
+      description: tr(
+        "Move around the map, choose a park, and see the activities available there.",
+        "Parcourez la carte, choisissez un parc et consultez les activités qui y sont offertes.",
+      ),
+      image: "/screenshots/selected_park_on_map.png",
+      alt: tr("SportLink map showing a selected park", "Carte SportLink montrant un parc sélectionné"),
+    },
+    {
+      eyebrow: tr("Activity details", "Détails de l’activité"),
+      title: tr("Know what you are joining.", "Sachez à quoi vous participez."),
+      description: tr(
+        "Check the time, place, organizer, participants, and conversation before you decide.",
+        "Consultez l’heure, le lieu, l’organisateur, les participants et la conversation avant de décider.",
+      ),
+      image: "/screenshots/activity_details.png",
+      alt: tr("SportLink activity details", "Détails d’une activité SportLink"),
+    },
+    {
+      eyebrow: tr("Bookings", "Activités"),
+      title: tr("Your plans stay easy to find.", "Retrouvez facilement vos activités."),
+      description: tr(
+        "See the activities you host, plan to attend, or save for later.",
+        "Consultez les activités que vous organisez, auxquelles vous participez ou que vous gardez pour plus tard.",
+      ),
+      image: "/screenshots/my_bookings.png",
+      alt: tr("SportLink bookings", "Activités enregistrées dans SportLink"),
+    },
+    {
+      eyebrow: tr("Profile", "Profil"),
+      title: tr("Make the app yours.", "Adaptez l’application à vos besoins."),
+      description: tr(
+        "Add your favorite sports and weekly availability to your profile.",
+        "Ajoutez vos sports préférés et vos disponibilités de la semaine à votre profil.",
+      ),
+      image: "/screenshots/my_profile.png",
+      alt: tr("SportLink profile", "Profil SportLink"),
+    },
   ];
 
   return (
@@ -51,7 +88,7 @@ export default function Home() {
 
         <nav className="home-nav" aria-label={tr("Primary navigation", "Navigation principale")}>
           <a href="#features">{tr("Features", "Fonctions")}</a>
-          <a href="#details">{tr("Activity details", "Détails")}</a>
+          <a href="#screens">{tr("Inside the app", "Dans l’application")}</a>
           <button
             type="button"
             onClick={() => setLanguage(language === "en" ? "fr" : "en")}
@@ -64,14 +101,14 @@ export default function Home() {
 
       <main id="top">
         <section className="home-hero">
-          <div className="home-shell">
+          <div className="home-shell hero-layout">
             <div className="hero-copy">
               <p className="home-eyebrow">{tr("Available on iOS and Android", "Disponible sur iOS et Android")}</p>
-              <h1>{tr("Find a game. Or start one.", "Trouvez une partie. Ou lancez-en une.")}</h1>
+              <h1>{tr("Find a game. Or start one.", "Trouvez une partie. Ou créez la vôtre.")}</h1>
               <p className="hero-description">
                 {tr(
-                  "Browse nearby sports activities, join one, or organize your own—all from one place.",
-                  "Parcourez les activités sportives près de chez vous, rejoignez-en une ou organisez la vôtre au même endroit.",
+                  "Browse nearby sports activities, join one, or organize your own in one place.",
+                  "Parcourez les activités sportives près de chez vous, participez ou organisez la vôtre au même endroit.",
                 )}
               </p>
 
@@ -91,21 +128,10 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="app-preview" aria-label={tr("SportLink app preview", "Aperçu de l’application SportLink")}>
+            <div className="hero-screen-wrap">
               <img
-                className="preview-screen preview-screen-left"
-                src="/screenshots/bookings.PNG"
-                alt={tr("Activities screen", "Écran des activités")}
-              />
-              <img
-                className="preview-screen preview-screen-main"
-                src="/screenshots/discover-map.PNG"
-                alt={tr("Nearby activities on the map", "Activités à proximité sur la carte")}
-              />
-              <img
-                className="preview-screen preview-screen-right"
-                src="/screenshots/activity-details.PNG"
-                alt={tr("Activity details screen", "Écran des détails d’une activité")}
+                src="/screenshots/home_page.png"
+                alt={tr("SportLink home screen", "Écran d’accueil de SportLink")}
               />
             </div>
           </div>
@@ -130,34 +156,23 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="home-section" id="details">
-          <div className="home-shell section-inner details-layout">
-            <div className="details-copy">
-              <p className="home-eyebrow">{tr("Before you join", "Avant de participer")}</p>
-              <h2>{tr("See the practical details.", "Consultez les détails utiles.")}</h2>
-              <p>
-                {tr(
-                  "Each activity page puts the information for a game in one place.",
-                  "Chaque page d’activité rassemble au même endroit les renseignements sur une partie.",
-                )}
-              </p>
+        <div id="screens">
+          {productViews.map((view, index) => (
+            <section className="home-section" key={view.image}>
+              <div className={`home-shell section-inner product-row ${index % 2 === 1 ? "product-row-reverse" : ""}`}>
+                <div className="product-copy">
+                  <p className="home-eyebrow">{view.eyebrow}</p>
+                  <h2>{view.title}</h2>
+                  <p>{view.description}</p>
+                </div>
 
-              <ul>
-                {detailItems.map(item => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="details-image-wrap">
-              <img
-                src="/screenshots/activity-details-2.PNG"
-                alt={tr("SportLink activity information", "Renseignements d’une activité SportLink")}
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </section>
+                <div className="product-screen-wrap">
+                  <img src={view.image} alt={view.alt} loading="lazy" />
+                </div>
+              </div>
+            </section>
+          ))}
+        </div>
       </main>
 
       <footer className="home-footer">
